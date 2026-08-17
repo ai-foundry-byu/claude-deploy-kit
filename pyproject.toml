@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-deploy-kit"
+version = "0.1.0"
+description = "Working controls for deploying Claude agents in an enterprise safely: policy chokepoint, command deny-hook, eval gate, audit log, and pluggable secrets. Generalized from a real production multi-agent org."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "JD Davenport" }]
+keywords = ["claude", "anthropic", "llm", "agents", "guardrails", "mcp", "ai-safety", "enterprise"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/jddavenportOpen/claude-deploy-kit"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
