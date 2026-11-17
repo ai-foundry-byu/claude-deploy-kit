@@ -12,7 +12,7 @@ It is not a greenfield toy. These are the controls the author actually runs acro
 |---|---|
 | **PolicyGate** | The single chokepoint for every outbound or irreversible action. Config-driven `allow` / `deny` / `require_approval` per action kind, defaulting to deny. An irreversible action can never be a silent allow, it is always escalated to approval. |
 | **CommandGuard** | A deny-hook that blocks destructive shell payloads (`rm -rf /`, `git push --force`, `DROP TABLE`, `curl \| sh`, `dd of=/dev/...`) even when the agent runs under skip-permissions. |
-| **EvalGate** | An output must clear a calibrated judge before it is accepted. Pluggable scorer (wire [mcp-judge](https://github.com/jddavenportOpen/mcp-judge) in production). Fails closed: a broken judge blocks, it does not wave output through. |
+| **EvalGate** | An output must clear a calibrated judge before it is accepted. Pluggable scorer (wire [mcp-judge](https://github.com/ai-foundry-byu/mcp-judge) in production). Fails closed: a broken judge blocks, it does not wave output through. |
 | **AuditLog** | Append-only JSONL of every attempt and each gate's decision, with a redactor that masks credentials before they are ever written. |
 | **SecretsProvider** | One-method contract (`get(name)`) so the backend swaps from env to AWS Secrets Manager to Vault without touching agent code. Values never render in a repr or a log. |
 
